@@ -44,7 +44,7 @@ private JdbcUtility() {
 					e.printStackTrace();
 				}
 			}
-			public static void close(Connection connection,Statement statement,CallableStatement callablestatement) {
+			public static void close(Connection connection,Statement statement,CallableStatement callablestatement,ResultSet resultset) {
 				try {
 					if(connection!=null) {
 						connection.close();
@@ -54,6 +54,9 @@ private JdbcUtility() {
 					}
 					if(callablestatement!=null){
 						callablestatement.close();
+					}
+					if(resultset!=null){
+						resultset.close();
 					}
 					
 				}catch(SQLException se) {
