@@ -44,13 +44,16 @@ private JdbcUtility() {
 					e.printStackTrace();
 				}
 			}
-			public static void close(Connection connection,Statement statement) {
+			public static void close(Connection connection,Statement statement,CallableStatement callablestatement) {
 				try {
 					if(connection!=null) {
 						connection.close();
 					}
 					if(statement!=null) {
 						statement.close();
+					}
+					if(callablestatement!=null){
+						callablestatement.close();
 					}
 					
 				}catch(SQLException se) {
